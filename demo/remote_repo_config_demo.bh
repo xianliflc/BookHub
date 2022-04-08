@@ -1,0 +1,32 @@
+{
+    "name": "repo name",
+    "resource_vendor": "Github",
+    "url": "https://github.com/xianliflc/Charlotte",
+    "resource_items": [
+        {
+            "resource_item_name": "The best book for PY",
+            "author": "abc def",
+            "resource_type": "Book",
+            "relative_url": "README.md",
+            "description": "some description about the resource",
+            "id": "116d55fd355b95e534966c906623a03b"
+        },
+        {
+            "resource_item_name": "The best book for PY",
+            "author": "abc def",
+            "resource_type": "Book",
+            "relative_url": "docs/http.md",
+            "description": "some description about the resource",
+            "id": "f3d682234790785b74ce430accc8987c"
+        }
+    ],
+    "version": 12,
+    "maintainer": "xianliflc",
+    "tags": [
+        "Tutorial",
+        "IT",
+        "Machine Learning"
+    ],
+    "description": "some description about the repo",
+    "id": "3fad67b247fbecfd27119f7c4ab5ef7b"
+}
