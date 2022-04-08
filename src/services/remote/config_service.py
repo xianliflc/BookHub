@@ -5,7 +5,7 @@ from jsonschema import validate, exceptions
 
 import json, os
 
-from vendors.vendors import SUPPORTED_VENDORS
+from src.vendors.vendors import SUPPORTED_VENDORS
 DEFAULT_RESOURCE_VENDOR = 'Github'
 
 class RemoteRepoException(Exception):
@@ -15,9 +15,12 @@ def download_remote_config(
     url: str
 ):
     config_data = load_remote_config_file(url)
-    with open('..\\..\\schemas\\remote_library_schema.json', 'r') as schema_file:
+    dirname = os.path.dirname(__file__)
+    filename = os.path.join(dirname, '..\\..\\schemas\\remote_library_schema.json')
+    with open(filename, 'r') as schema_file:
         schema = json.load(schema_file)
-        config_json = json.load(config_data)
+        config_json = json.loads(config_data)
+
         try:
             validate(instance=config_json, schema=schema)
             return config_json, ''
