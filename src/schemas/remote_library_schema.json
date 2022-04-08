@@ -1,0 +1,83 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type" : "object",
+    "properties" : {
+        "repos" : 
+            {
+                "type" : "array",
+                "uniqueItems": true,
+                "items" : [
+                    {   
+                        "type": "object",
+                        "properties": {
+                            "name" : {
+                                "type": "string"
+                            },
+                            "resource_vendor" : {
+                                "type": "string",
+                                "enum": [
+                                    "Github",
+                                    "Gitlab",
+                                    "Bitbucket",
+                                    "Amazon S3"
+                                ]
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "version": {
+                                "type": "number",
+                                "minimum" : 1
+                            },
+                            "maintainer": {
+                                "type": "string"
+                            },
+                            "tags": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "items" : [
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "resource_items": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "resource_item_name": {
+                                                "type": "string"
+                                            },
+                                            "author": {
+                                                "type": "string"
+                                            },
+                                            "resource_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Book",
+                                                    "Article",
+                                                    "Note",
+                                                    "Video",
+                                                    "Other"
+                                                ]
+                                            },
+                                            "relative_url": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+        "name" : {"type" : "string"}
+    }
+
+}
