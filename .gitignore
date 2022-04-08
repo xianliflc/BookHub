@@ -5,6 +5,7 @@ books/
 *$py.class
 configs/
 output/
+main.py
 
 # C extensions
 *.so
