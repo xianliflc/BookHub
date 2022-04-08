@@ -31,9 +31,11 @@ def load_remote_config_file(
         if remote_url.split('.')[-1] != 'bh':
             print('WARNING: the remote repo config may not be supported')
         data = requests.get(remote_url)
+        if data.status_code != 200:
+            raise Exception('ERROR: download file')
     except Exception as e:
         print('------------------------------')
         print(e)
         print('------------------------------')
 
-    return data
+    return data.content.decode('utf-8')
