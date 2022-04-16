@@ -13,6 +13,9 @@
                             "name" : {
                                 "type": "string"
                             },
+                            "url" : {
+                                "type": "string"
+                            },
                             "resource_vendor" : {
                                 "type": "string",
                                 "enum": [
@@ -21,6 +24,17 @@
                                     "Bitbucket",
                                     "Amazon S3"
                                 ]
+                            },
+                            "vendor_setting" : {
+                                "type": "object",
+                                "properties": {
+                                    "branch" : {
+                                        "type": "string"
+                                    },
+                                    "repo_name" : {
+                                        "type": "string"
+                                    }
+                                }
                             },
                             "description": {
                                 "type": "string"
@@ -66,18 +80,43 @@
                                             "relative_url": {
                                                 "type": "string"
                                             },
+                                            "absolute_url": {
+                                                "type": "string"
+                                            },
                                             "description": {
                                                 "type": "string"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "resource_item_name"
+                                        ],
+                                        "oneOf": [
+                                            {
+                                                "required": ["relative_url"]
+                                            },
+                                            {
+                                                "required": ["absolute_url"]
+                                            }
+                                        ]
                                     }
                                 ]
                             }
-                        }
+                        },
+                        "required": [
+                            "name",
+                            "resource_vendor",
+                            "version",
+                            "resource_items",
+                            "url"
+                        ]
                     }
                 ]
             },
         "name" : {"type" : "string"}
-    }
+    },
+    "required": [
+        "repos",
+        "name"
+    ]
 
 }
