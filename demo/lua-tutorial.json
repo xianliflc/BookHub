@@ -1,0 +1,68 @@
+{
+    "name": "lua-tutorial",
+    "resource_vendor": "Github",
+    "vendor_setting" : {
+        "branch": "master",
+        "repo__name": "lua-tutorial"
+    },
+    "url": "https://github.com/mikolajgucki/lua-tutorial",
+    "resource_items": [
+        {
+            "resource_item_name": "Lua state",
+            "author": "mikolajgucki",
+            "resource_type": "Book Chapter",
+            "relative_url": "00-lua-state/lua-state.md",
+            "description": ""
+        },
+        {
+            "resource_item_name": "Lua stack - the key to understanding the Lua C API",
+            "author": "mikolajgucki",
+            "resource_type": "Book Chapter",
+            "relative_url": "01-lua-stack-key-to-understanding-c-api/lua-stack-key-to-understanding-c-api.md",
+            "description": ""
+        },
+        {
+            "resource_item_name": "Calling Lua function from C/C++",
+            "author": "mikolajgucki",
+            "resource_type": "Book Chapter",
+            "relative_url": "02-calling-lua-function/calling-lua-function.md",
+            "description": ""
+        },
+        {
+            "resource_item_name": "Implementing a Lua library in C/C++",
+            "author": "mikolajgucki",
+            "resource_type": "Book Chapter",
+            "relative_url": "03-implementing-lua-library-in-cpp/implementing-lua-library-in-cpp.md",
+            "description": ""
+        },
+        {
+            "resource_item_name": "Manipulating Lua tables in C/C++",
+            "author": "mikolajgucki",
+            "resource_type": "Book Chapter",
+            "relative_url": "04-manipulating-lua-tables-in-cpp/manipluating-lua-tables-in-cpp.md",
+            "description": ""
+        },
+        {
+            "resource_item_name": "Lua metatables",
+            "author": "mikolajgucki",
+            "resource_type": "Book Chapter",
+            "relative_url": "05-lua-metatables/lua-metatables.md",
+            "description": ""
+        },
+        {
+            "resource_item_name": "Object-oriented Lua using metatables",
+            "author": "mikolajgucki",
+            "resource_type": "Book Chapter",
+            "relative_url": "06-oo-lua-using-metatables/oo-lua-using-metatables.md",
+            "description": ""
+        }
+    ],
+    "version": 1,
+    "maintainer": "mikolajgucki",
+    "tags": [
+        "Tutorial",
+        "Programming Language",
+        "Lua"
+    ],
+    "description": "Lua tutorial with advanced topics."
+}

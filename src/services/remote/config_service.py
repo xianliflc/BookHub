@@ -1,7 +1,7 @@
 from src.libs.objects.config_object import ConfigObject
 from src.libs.download import load_remote_config_file
 from src.templates.templates import remote_repo_template
-from jsonschema import validate, exceptions
+from jsonschema import Draft7Validator, draft7_format_checker, exceptions, validate
 
 import json, os
 
@@ -16,16 +16,16 @@ def download_remote_config(
 ):
     config_data = load_remote_config_file(url)
     dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname, '..\\..\\schemas\\remote_library_schema.json')
+    filename = os.path.join(dirname, '..\\..\\schemas\\remote_repo_schema.json')
     with open(filename, 'r') as schema_file:
         schema = json.load(schema_file)
         config_json = json.loads(config_data)
-
         try:
-            validate(instance=config_json, schema=schema)
-            return config_json, ''
+            Draft7Validator.check_schema(schema)
+            validate(instance=config_json, schema=schema, format_checker = draft7_format_checker)
+            return config_json
         except exceptions.ValidationError as e:
-            raise RemoteRepoException('Invalid remote repo config file')
+            raise RemoteRepoException('Invalid remote repo config file: ' + e)
 
 def create_remote_repo_config(
     data: dict
@@ -67,6 +67,7 @@ def output_remote_repo_config(
     file_path = os.path.join(output_path, filename +'.bh')
     with open(file_path, "w") as outfile:
         outfile.write(json_object)
+        return file_path
 
 def create_and_output_remote_repo_config(
     data: dict,
