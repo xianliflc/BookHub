@@ -63,6 +63,7 @@
                             "type": "string",
                             "enum": [
                                 "Book",
+                                "Book Chapter",
                                 "Article",
                                 "Note",
                                 "Video",

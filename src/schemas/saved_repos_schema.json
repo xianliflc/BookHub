@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type" : "object",
+    "properties" : {
+        "repos" : 
+            {
+                "type" : "array",
+                "uniqueItems": true,
+                "items" : [
+                    {   
+                        "type": "object",
+                        "properties": {
+                            "name" : {
+                                "type": "string"
+                            },
+                            "md5" : {
+                                "type": "integer"
+                            },
+                            "created_from" : {
+                                "type": "string",
+                                "enum": [
+                                    "local",
+                                    "remote"
+                                ]
+                            },
+                            "path" : {
+                                "type": "string"
+                            },
+                            "created_at" : {
+                                "type": "string"
+                            },
+                            "updated_at" : {
+                                "type": "string"
+                            },
+                            "updates_detected_at" : {
+                                "type": "string"
+                            },
+                            "has_updates" : {
+                                "type": "boolean"
+                            },
+                            "is_archieved" : {
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "md5",
+                            "created_from",
+                            "created_at",
+                            "updated_at"
+                        ]
+                    }
+                ]
+            },
+        "name" : {"type" : "string"}
+    },
+    "updated_at": {
+        "type": "string"
+    },
+    "required": [
+        "repos",
+        "updated_at"
+    ]
+
+}

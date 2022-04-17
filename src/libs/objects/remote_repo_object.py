@@ -49,9 +49,15 @@ class RemoteRepo():
             ]
         )
         self.id = hashlib.md5(the_string.encode()).hexdigest()
-
         for k in range(len(self.resource_items)):
             self.resource_items[k].initialize()
+
+    @staticmethod
+    def get_build_params(data: dict):
+        data['resource_vendor'] = data.get('resource_vendor', 'Github')
+
+        return data
+
 
 
 class RemoteRepos():
