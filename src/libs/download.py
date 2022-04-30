@@ -11,16 +11,17 @@ def download_file_with_target_url_and_local_name(
     try: 
         data = requests.get(remote_url)
         file_path = os.path.join(directory, local_file)
-        print(file_path)
         if not os.path.exists(directory):
             access = 0o777
             os.makedirs(directory, access)
         with open(file_path, 'wb')as file:
             file.write(data.content)
+            return file_path
     except Exception as e:
         print('------------------------------')
         print(e)
         print('------------------------------')
+
 
 
 def load_remote_config_file(

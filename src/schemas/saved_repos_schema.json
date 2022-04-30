@@ -14,7 +14,7 @@
                                 "type": "string"
                             },
                             "md5" : {
-                                "type": "integer"
+                                "type": "string"
                             },
                             "created_from" : {
                                 "type": "string",
@@ -40,6 +40,38 @@
                             },
                             "is_archieved" : {
                                 "type": "boolean"
+                            },
+                            "downloaded_files" : {
+                                "type" : "array",
+                                "uniqueItems": true,
+                                "items" : [
+                                    {   
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "created_at" : {
+                                                "type": "string"
+                                            },
+                                            "updated_at" : {
+                                                "type": "string"
+                                            },
+                                            "opened_at" : {
+                                                "type": "string"
+                                            },
+                                            "path" : {
+                                                "type": "string"
+                                            }
+                                            
+                                        },
+                                        "required": [
+                                            "id",
+                                            "created_at",
+                                            "path"
+                                        ]
+                                    }
+                                ]
                             }
                         },
                         "required": [
