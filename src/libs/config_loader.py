@@ -19,6 +19,7 @@ def load_config() -> ConfigObject:
     filename = os.path.join(dirname, LOCAL_SETTING_PATH)
     f = open(filename)
     data = json.load(f)
+
     config = ConfigObject(data['user_setting'], data['system_setting'])
     f.close()
     return config
@@ -85,16 +86,18 @@ def build_remote_repos(data: list):
     for re in data:
         items = []
         for item in re['resource_items']:
-            items.append(
-                RemoteItemObject(
+            obj = RemoteItemObject(
                     resource_item_name=item['resource_item_name'],
                     author=item['author'],
                     resource_type=item['resource_type'],
                     relative_url=item['relative_url'],
                     description=item['description'],
-                    id=item['id']
                 )
-            )
+            if 'id' not in item:
+                obj.initialize()
+            else:
+                obj.id = item['id']
+            items.append(obj)
 
         repo = RemoteRepo(
             name=re['name'],

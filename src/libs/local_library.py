@@ -1,16 +1,16 @@
 import json
 import os
+from src.libs.objects.config_object import ConfigObject
 
 from src.libs.objects.remote_repo_object import RemoteRepo
 
-DOWNLOAD_REPO_DIR = '..\\..\\output\\'
 
-def get_downloaded_files(
-    file_path: str
+def get_existing_downloaded_files(
+    config: ConfigObject
 ) -> list[str]:
 
     listOfFiles = list()
-    for (dirpath, _, filenames) in os.walk(file_path):
+    for (dirpath, _, filenames) in os.walk(config.download_path):
         listOfFiles += [[file, os.path.join(dirpath, file)] for file in filenames]
 
     return listOfFiles

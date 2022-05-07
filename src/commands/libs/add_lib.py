@@ -29,7 +29,6 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(prog='libs')
     sub_parsers = parser.add_subparsers(help='libs add help')
-
     parser_cool = sub_parsers.add_parser('add', help='add a repo to the local library')
     parser_cool.add_argument('path', type=str, help='the path to repo config')
     parser_cool.add_argument('--local', '-l', action='store_true')
