@@ -6,9 +6,11 @@ books/
 configs/
 output/
 main.py
-
+.idea/*
+.idea
 # C extensions
 *.so
+repos/
 
 # Distribution / packaging
 .Python

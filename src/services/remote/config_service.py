@@ -7,6 +7,7 @@ import json, os
 
 from src.vendors.vendors import SUPPORTED_VENDORS
 DEFAULT_RESOURCE_VENDOR = 'Github'
+REMOTE_REPO_SCHEMA = '..\\..\\schemas\\remote_repo_schema.json'
 
 class RemoteRepoException(Exception):
     pass
@@ -16,7 +17,7 @@ def download_remote_config(
 ):
     config_data = load_remote_config_file(url)
     dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname, '..\\..\\schemas\\remote_repo_schema.json')
+    filename = os.path.join(dirname, REMOTE_REPO_SCHEMA)
     with open(filename, 'r') as schema_file:
         schema = json.load(schema_file)
         config_json = json.loads(config_data)

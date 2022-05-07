@@ -1,0 +1,97 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type" : "object",
+    "properties" : {
+        "repos" : 
+            {
+                "type" : "array",
+                "uniqueItems": true,
+                "items" : [
+                    {   
+                        "type": "object",
+                        "properties": {
+                            "name" : {
+                                "type": "string"
+                            },
+                            "md5" : {
+                                "type": "string"
+                            },
+                            "created_from" : {
+                                "type": "string",
+                                "enum": [
+                                    "local",
+                                    "remote"
+                                ]
+                            },
+                            "path" : {
+                                "type": "string"
+                            },
+                            "created_at" : {
+                                "type": "string"
+                            },
+                            "updated_at" : {
+                                "type": "string"
+                            },
+                            "updates_detected_at" : {
+                                "type": "string"
+                            },
+                            "has_updates" : {
+                                "type": "boolean"
+                            },
+                            "is_archieved" : {
+                                "type": "boolean"
+                            },
+                            "downloaded_files" : {
+                                "type" : "array",
+                                "uniqueItems": true,
+                                "items" : [
+                                    {   
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "created_at" : {
+                                                "type": "string"
+                                            },
+                                            "updated_at" : {
+                                                "type": "string"
+                                            },
+                                            "opened_at" : {
+                                                "type": "string"
+                                            },
+                                            "path" : {
+                                                "type": "string"
+                                            }
+                                            
+                                        },
+                                        "required": [
+                                            "id",
+                                            "created_at",
+                                            "path"
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "md5",
+                            "created_from",
+                            "created_at",
+                            "updated_at"
+                        ]
+                    }
+                ]
+            },
+        "name" : {"type" : "string"}
+    },
+    "updated_at": {
+        "type": "string"
+    },
+    "required": [
+        "repos",
+        "updated_at"
+    ]
+
+}

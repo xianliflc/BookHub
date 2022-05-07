@@ -8,13 +8,15 @@ class RemoteItemObject():
         author: str,
         resource_type: str,
         relative_url: str,
-        description: str = ""
+        description: str = "",
+        id: str = None
     ) -> None:
         self.resource_item_name = resource_item_name
         self.author = author
         self.resource_type = resource_type
         self.relative_url = relative_url
         self.description = description
+        self.id = id
 
     @property
     def is_initialized(self) -> bool:
@@ -31,3 +33,5 @@ class RemoteItemObject():
             ]
         )
         self.id = hashlib.md5(the_string.encode()).hexdigest()
+
+    

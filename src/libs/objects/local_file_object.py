@@ -14,35 +14,18 @@ class VirtualFolder(Tag):
 class LocalFileObject():
     def __init__(
         self,
-        file_name: str,
-        file_path: str,
-        create_at: datetime = None,
-        repo_id: str = None,
-        remote_item_id: str = None,
-        is_up_to_date: bool = True,
-        has_update: bool = False,
-        updated_at:datetime = datetime.datetime.now(),
-        is_opened: bool = False,
-        tags: list[Tag] = [],
-        virtual_folder: VirtualFolder = None
+        path: str,
+        id: str,
+        created_at: datetime = datetime.datetime.now(),
+        updated_at: datetime = datetime.datetime.now(),
+        opened_at: datetime = None
     ) -> None:
-        self.file_name = file_name
-        self.file_path = file_path
-        self.create_at = create_at
-        self.is_up_to_date = is_up_to_date
-        self.has_update = has_update
+        self.path = path
+        self.id = id
+        self.created_at = created_at
         self.updated_at = updated_at
-        self.is_opened = is_opened
-        self.has_update = has_update
-        self.has_update = has_update
-        self.repo_id = repo_id
-        self.remote_item_id = remote_item_id
-        self.tags = tags
-        self.virtual_folder = virtual_folder
+        self.opened_at = opened_at
 
-    @property
-    def has_remote(self) -> bool:
-        return self.repo_id is not None
 
     
 
